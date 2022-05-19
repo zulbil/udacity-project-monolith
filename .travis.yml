@@ -14,7 +14,7 @@ before_script:
   - echo "no tests"
 
 script:
-  - docker --version # print the version for logging
+  - docker --version
   - docker build -t udagram-api-feed ./udagram-api-feed
   - docker tag udagram-api-feed joelscander/udagram-api-feed:v1
   - docker build -t udagram-api-user ./udagram-api-user
