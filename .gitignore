@@ -1,1 +1,4 @@
 set_env.sh
+kubernetes/aws-secret.yaml
+kubernetes/env-secret.yaml
+kubernetes/env-configmap.yaml
