@@ -7,11 +7,11 @@ services:
 
 # Pre-testing installs
 install:
-  - echo "nothing needs to be installed"
+  - echo "Installing dependencies"
 
 # Scripts to be run such as tests
 before_script:
-  - echo "no tests"
+  - echo "Running test scripts ..."
 
 script:
   - docker --version
