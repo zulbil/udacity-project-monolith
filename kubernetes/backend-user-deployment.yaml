@@ -18,12 +18,12 @@ spec:
       - image: joelscander/udagram-api-user:latest
         name: backend-user
         resources:
-          limits:
-            memory: 2Gi
-            cpu: 1
           requests:
-            memory: 1Gi
-            cpu: 0.5
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"
         envFrom:
         - configMapRef:
             name: env-config
