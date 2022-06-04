@@ -15,7 +15,7 @@ spec:
         app: frontend
     spec:
       containers:
-      - image: joelscander/udagram-frontend:latest
+      - image: joelscander/udagram-frontend:v9
         name: frontend
         imagePullPolicy: Always          
         ports:
