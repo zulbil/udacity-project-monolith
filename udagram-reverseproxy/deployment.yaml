@@ -15,18 +15,18 @@ spec:
         app: reverseproxy
     spec:
       containers:
-      - image: joelscander/udagram-reverseproxy:v9
+      - image: joelscander/udagram-reverseproxy:v8
         name: reverseproxy
         imagePullPolicy: Always          
         ports:
         - containerPort: 8080
         resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
           limits:
-            memory: "1024Mi"
-            cpu: "500m"
+            memory: 2Gi
+            cpu: 1
+          requests:
+            memory: 1Gi
+            cpu: 0.5
         envFrom:
         - configMapRef:
             name: env-config

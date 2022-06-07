@@ -15,7 +15,7 @@ spec:
         app: backend-feed
     spec:
       containers:
-      - image: joelscander/udagram-api-feed:v9
+      - image: joelscander/udagram-api-feed:v8
         name: backend-feed
         ports:
         - containerPort: 80
