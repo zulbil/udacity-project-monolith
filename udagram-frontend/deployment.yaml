@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
-  labels:
-    service: frontend
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
-      app: frontend
+      app: udagram
+      tier: frontend
   template:
     metadata:
       labels:
-        app: frontend
+        app: udagram
+        tier: frontend
     spec:
       containers:
       - image: joelscander/udagram-frontend:v8
-        name: frontend
+        name: udagram-frontend
         imagePullPolicy: Always          
         ports:
         - containerPort: 80
