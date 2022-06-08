@@ -1,22 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: reverseproxy
+  name: udagram-reverseproxy
   labels:
-    app: reverseproxy
+    app: udagram-api
+    role: reverseproxy
+    tier: backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: reverseproxy
+      app: udagram-api
   template:
     metadata:
       labels:
-        app: reverseproxy
+        app: udagram-api
+        role: reverseproxy
+        tier: backend
     spec:
       containers:
       - image: joelscander/udagram-reverseproxy:v8
-        name: reverseproxy
+        name: udagram-reverseproxy
         imagePullPolicy: Always          
         ports:
         - containerPort: 8080
