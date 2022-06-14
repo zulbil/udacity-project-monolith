@@ -20,7 +20,7 @@ router.get('/:id', async (req: Request, res: Response) => {
   res.send(item);
 });
 
-router.get('/users/:username', async (req: Request, res: Response) => {
+router.get('/:username', async (req: Request, res: Response) => {
   const {username} = req.params;
   let pid = uuidv4();
   let logMessage = `${new Date().toLocaleString()} + : ${pid} - User ${username} requested for resource`;
