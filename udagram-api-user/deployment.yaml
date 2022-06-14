@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: udagram-api-user
+  name: backend-user
   labels:
     app: udagram-api
     role: user
@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - image: joelscander/udagram-api-user:v8
-        name: udagram-api-user
+        name: backend-user
         ports:
         - containerPort: 8080
         resources:
