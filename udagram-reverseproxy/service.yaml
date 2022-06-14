@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: udagram-reverseproxy
+  name: reverseproxy
   labels:
     app: udagram-api
-    role: reverseproxy
+    role: reverseproxys
     tier: backend
 spec:
   ports:

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: udagram-reverseproxy
+  name: reverseproxy
   labels:
     app: udagram-api
     role: reverseproxy
@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - image: joelscander/udagram-reverseproxy:v8
-        name: udagram-reverseproxy
+        name: reverseproxy
         imagePullPolicy: Always          
         ports:
         - containerPort: 8080
