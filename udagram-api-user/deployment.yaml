@@ -32,4 +32,4 @@ spec:
             cpu: 0.5
         envFrom:
         - configMapRef:
-            name: env-config
+            name: env-config-map
