@@ -6,22 +6,27 @@ import { v4 as uuidv4 } from 'uuid';
 
 const router: Router = Router();
 
-router.use('/auth', AuthRouter);
-
-router.get('/');
-
-function sleep(ms) {
+function sleep(ms: any) {
   return new Promise(resolve => setTimeout(resolve, ms) );
 }
 
 router.get('/:id', async (req: Request, res: Response) => {
-  const {id} = req.params;
-  const item = await User.findByPk(id);
-  res.send(item);
+  try {
+    const {id} = req.params;
+    const item = await User.findByPk(id);
+    if(!item) {
+      throw new Error(`User #${id} is not found`);
+    }
+    return res.send(item).status(200);
+  } catch (error: any) {
+    return res.send(error.message).status(400); 
+  }
+  
 });
 
-router.get('/username/:username', async (req: Request, res: Response) => {
+router.get('/username/:username', (req: Request, res: Response) => {
   const {username} = req.params;
+  console.log(username);
   let pid = uuidv4();
   let logMessage = `${new Date().toLocaleString()} + : ${pid} - User ${username} requested for resource`;
   console.log(logMessage);
@@ -29,6 +34,9 @@ router.get('/username/:username', async (req: Request, res: Response) => {
     console.log(logMessage);
   });
 
+  return res.send({ "message" : logMessage }).status(200);
 });
+
+//router.use('/auth', AuthRouter);
 
 export const UserRouter: Router = router;
