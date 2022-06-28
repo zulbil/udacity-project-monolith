@@ -7,6 +7,10 @@ import * as c from '../../../../config/config';
 
 const router: Router = Router();
 
+function sleep(ms: any) {
+  return new Promise(resolve => setTimeout(resolve, ms) );
+}
+
 export function requireAuth(req: Request, res: Response, next: NextFunction) {
   if (!req.headers || !req.headers.authorization) {
     return res.status(401).send({message: 'No authorization headers.'});
@@ -27,7 +31,7 @@ export function requireAuth(req: Request, res: Response, next: NextFunction) {
 }
 
 // Get all feed items
-router.get('/', async (req: Request, res: Response) => {
+router.get('/', requireAuth, async (req: Request, res: Response) => {
   const items = await FeedItem.findAndCountAll({order: [['id', 'DESC']]});
   items.rows.map((item) => {
     if (item.url) {

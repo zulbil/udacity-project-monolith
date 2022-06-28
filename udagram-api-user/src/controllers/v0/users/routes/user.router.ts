@@ -10,19 +10,19 @@ function sleep(ms: any) {
   return new Promise(resolve => setTimeout(resolve, ms) );
 }
 
-// router.get('/:id', async (req: Request, res: Response) => {
-//   try {
-//     const {id} = req.params;
-//     const item = await User.findByPk(id);
-//     if(!item) {
-//       throw new Error(`User #${id} is not found`);
-//     }
-//     return res.send(item).status(200);
-//   } catch (error: any) {
-//     return res.send(error.message).status(400); 
-//   }
+router.get('/:id', async (req: Request, res: Response) => {
+  try {
+    const {id} = req.params;
+    const item = await User.findByPk(id);
+    if(!item) {
+      throw new Error(`User #${id} is not found`);
+    }
+    return res.send(item).status(200);
+  } catch (error: any) {
+    return res.send(error.message).status(400); 
+  }
   
-// });
+});
 
 router.get('/:username', (req: Request, res: Response) => {
   const {username} = req.params;
