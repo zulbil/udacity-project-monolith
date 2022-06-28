@@ -48,6 +48,7 @@ router.get('/', requireAuth, async (req: Request, res: Response) => {
       item.url = AWS.getGetSignedUrl(item.url);
     }
   });
+  logger("alex");
   res.send(items);
 });
 
