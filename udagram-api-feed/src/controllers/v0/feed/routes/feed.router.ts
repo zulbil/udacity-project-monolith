@@ -4,11 +4,21 @@ import {NextFunction} from 'connect';
 import * as jwt from 'jsonwebtoken';
 import * as AWS from '../../../../aws';
 import * as c from '../../../../config/config';
+import { v4 as uuidv4 } from 'uuid';
 
 const router: Router = Router();
 
 function sleep(ms: any) {
   return new Promise(resolve => setTimeout(resolve, ms) );
+}
+
+function logger(username: any) {
+  let pid = uuidv4();
+  let logMessage = `${new Date().toLocaleString()} : ${pid} - User ${username} requested for resource`;
+  console.log(logMessage);
+  sleep(Math.random()*1000).then(()=> {
+    console.log(logMessage);
+  });
 }
 
 export function requireAuth(req: Request, res: Response, next: NextFunction) {
