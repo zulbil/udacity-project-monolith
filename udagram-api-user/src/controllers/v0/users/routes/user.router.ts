@@ -6,6 +6,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 const router: Router = Router();
 
+router.use('/auth', AuthRouter);
+
 function sleep(ms: any) {
   return new Promise(resolve => setTimeout(resolve, ms) );
 }
@@ -34,11 +36,11 @@ function logger(username: any) {
   
 // });
 
-router.get('/:username', (req: Request, res: Response) => {
-  const {username} = req.params;
-  logger(username); 
-  return res.send({ "message" : "Get user "+username }).status(200);
-});
+// router.get('/:username', (req: Request, res: Response) => {
+//   const {username} = req.params;
+//   logger(username); 
+//   return res.send({ "message" : "Get user "+username }).status(200);
+// });
 
 
 export const UserRouter: Router = router;
