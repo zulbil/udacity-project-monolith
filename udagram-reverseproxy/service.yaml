@@ -4,7 +4,7 @@ metadata:
   name: reverseproxy
   labels:
     app: udagram-api
-    role: reverseproxys
+    role: reverseproxy
     tier: backend
 spec:
   ports:
